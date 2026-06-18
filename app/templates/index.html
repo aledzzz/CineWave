@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CineWave | Next-Gen Movie Hub</title>
+    <!-- Meta tags for SEO -->
+    <meta name="description" content="Discover the latest upcoming blockbuster movies, watch teasers, explore cast/directors, read daily movie news from Variety, and create your personalized cinematic watchlist.">
+    <meta name="keywords" content="movies, blockbusters, Dune 3, Avengers Doomsday, Spider-Man Brand New Day, The Odyssey, cinema news, movie watchlist">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- CSS stylesheet -->
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body class="dark-theme">
+    <!-- Navbar -->
+    <nav class="navbar" id="main-navbar">
+        <div class="nav-container">
+            <a href="#" class="logo" id="logo-link">
+                <span class="logo-accent">CINE</span>WAVE
+            </a>
+            
+            <div class="nav-actions">
+                <button class="nav-link-btn" id="go-watchlist-btn">
+                    <i data-lucide="bookmark" class="icon-sm"></i>
+                    <span>Watchlist</span>
+                    <span class="badge" id="watchlist-badge">0</span>
+                </button>
+                <button class="refresh-btn" id="refresh-trigger" title="Refresh Feed">
+                    <i data-lucide="refresh-cw" id="spinner-icon"></i>
+                    <span>Refresh</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Banner -->
+    <header class="hero-banner">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <span class="hero-subtitle">EXCLUSIVE PREVIEW</span>
+            <h1 class="hero-title">The Future of Cinema</h1>
+            <p class="hero-description">Explore details, trailers, cast lists, and breaking industry updates for the most anticipated upcoming blockbusters.</p>
+            <div class="hero-buttons">
+                <button class="btn btn-primary" id="hero-scroll-btn">
+                    <i data-lucide="compass"></i> Explore Blockbusters
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Section: Featured Blockbusters -->
+        <section class="section" id="blockbusters-section">
+            <div class="section-header">
+                <div>
+                    <h2 class="section-title">Featured Blockbusters</h2>
+                    <p class="section-subtitle">The highly anticipated cinematic events arriving in theaters</p>
+                </div>
+            </div>
+            
+            <!-- Grid of Blockbuster Movie Cards -->
+            <div class="movies-grid" id="featured-movies-grid">
+                <!-- Javascript will inject cards here -->
+                <div class="shimmer-card"></div>
+                <div class="shimmer-card"></div>
+                <div class="shimmer-card"></div>
+                <div class="shimmer-card"></div>
+            </div>
+        </section>
+
+        <!-- Section: Watchlist -->
+        <section class="section watchlist-section hidden" id="watchlist-section">
+            <div class="section-header">
+                <div>
+                    <h2 class="section-title">My Watchlist</h2>
+                    <p class="section-subtitle">Your personalized list of upcoming films to track</p>
+                </div>
+                <button class="btn btn-outline btn-sm" id="close-watchlist-btn">
+                    Close Watchlist
+                </button>
+            </div>
+            
+            <div class="watchlist-grid" id="watchlist-grid">
+                <!-- Javascript will inject saved cards here -->
+            </div>
+            
+            <div class="watchlist-empty" id="watchlist-empty-state">
+                <i data-lucide="film" class="empty-icon"></i>
+                <h3>Your watchlist is empty</h3>
+                <p>Add blockbusters or news updates using the bookmark buttons above to save them locally.</p>
+            </div>
+        </section>
+
+        <!-- Section: News Feed -->
+        <section class="section" id="news-section">
+            <div class="section-header">
+                <div>
+                    <h2 class="section-title">Latest Movie News & Updates</h2>
+                    <p class="section-subtitle">Real-time industry briefings directly from Variety</p>
+                </div>
+            </div>
+            
+            <div class="news-list" id="news-feed-container">
+                <!-- Javascript will inject list items here -->
+                <div class="shimmer-news-item"></div>
+                <div class="shimmer-news-item"></div>
+                <div class="shimmer-news-item"></div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <p>&copy; 2026 CineWave. Powered by Flask & Variety RSS. Designed with Premium Aesthetics.</p>
+            <p class="footer-subtext">Images generated via Antigravity AI assets. All data stored locally inside the <code>app</code> folder.</p>
+        </div>
+    </footer>
+
+    <!-- Trailer Popup Modal -->
+    <div class="modal-overlay" id="trailer-modal">
+        <div class="modal-content">
+            <button class="modal-close" id="modal-close-btn" aria-label="Close modal">
+                <i data-lucide="x"></i>
+            </button>
+            <div class="video-container">
+                <iframe id="trailer-iframe" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+            <div class="modal-info-panel">
+                <h3 id="modal-movie-title">Movie Title</h3>
+                <p id="modal-movie-date">Release Date</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Detailed Cast/Director Information Modal -->
+    <div class="modal-overlay" id="details-modal">
+        <div class="details-modal-content">
+            <button class="modal-close" id="details-close-btn" aria-label="Close modal">
+                <i data-lucide="x"></i>
+            </button>
+            
+            <div class="details-modal-grid">
+                <div class="details-poster-wrapper">
+                    <img id="details-poster" src="" alt="Movie Poster">
+                </div>
+                
+                <div class="details-info-wrapper">
+                    <span class="badge-accent">UPCOMING BLOCKBUSTER</span>
+                    <h2 id="details-title" class="details-title">Movie Title</h2>
+                    
+                    <div class="details-meta">
+                        <div class="meta-item">
+                            <i data-lucide="calendar"></i>
+                            <span id="details-date">Release Date</span>
+                        </div>
+                    </div>
+                    
+                    <div class="details-block">
+                        <h3>Synopsis</h3>
+                        <p id="details-synopsis" class="details-synopsis">Movie synopsis goes here.</p>
+                    </div>
+
+                    <div class="details-block">
+                        <h3>Director</h3>
+                        <div class="director-profile" id="details-director-container">
+                            <!-- JS injected director profile -->
+                        </div>
+                    </div>
+
+                    <div class="details-block">
+                        <h3>Key Cast</h3>
+                        <div class="cast-row" id="details-cast-container">
+                            <!-- JS injected cast profiles -->
+                        </div>
+                    </div>
+                    
+                    <div class="details-actions">
+                        <button class="btn btn-primary btn-md" id="details-trailer-btn">
+                            <i data-lucide="play"></i> Watch Trailer
+                        </button>
+                        <button class="btn btn-outline btn-md" id="details-watchlist-btn">
+                            <i data-lucide="bookmark"></i> Add to Watchlist
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div class="toast" id="toast">
+        <span id="toast-message">Item added to watchlist!</span>
+    </div>
+
+    <!-- JS script -->
+    <script src="/static/js/main.js"></script>
+</body>
+</html>
