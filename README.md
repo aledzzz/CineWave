@@ -1,51 +1,46 @@
-# Streamfolio 
+# CineWave
 
-An end-to-end Fintech pipeline dashboard built to display a user's music portfolio based on their top 5 tracks and calculates the estimated gross/net revenue royalties using the 2026 music industry standards. Also focusing on real-time automation, this program vaults portfolio data into a local SQLite database and automatically generates CSV files for visualization in Tableau. 
+An upcoming blockbuster movie hub and real-time news pipeline dashboard built to display highly anticipated blockbusters, stream official teaser trailers, and track film industry headlines. Designed with rich glassmorphism aesthetics, this Flask web application vaults user watchlist selections into a local JSON database and automatically curates film-only press coverage from Variety.
 
-# Prerequistes
+# Prerequisites
 - Python 3.11+
-- Spotify and Spotipy API (grab Spotify API key here: https://developer.spotify.com/)
-- Tableau Desktop Liscense
-- SQLite 3 Editor (IDE extension)
-- pip install manager 
+- Virtual Environment manager (`venv`)
+- Modern Web Browser (Google Chrome recommended)
+- pip package manager
 
 # Key Features
-- Top 5 Tracks: Fetches a user's top 5 tracks over a 12-month period using Spotify API
-- Market Valuation: Calculates estimated revenue using the current industry baseline ($0.004 per stream & ~30% platform cut)
-- Monetization Floor: Flags tracks that have reached 1,000 streams within a rolling 12-month period
+- **Curated Blockbusters:** Showcases highly anticipated titles (Toy Story 5, Supergirl, The Odyssey, Spider-Man, Avengers, Dune 3) sorted chronologically.
+- **Film Industry News:** Curates and filters live Variety RSS news feed items, strictly rendering movie-focused updates.
+- **Interactive Trailers:** Plays high-definition trailers via a dedicated YouTube embed overlay modal.
+- **Circular Cast Profiles:** Renders detailed cast and director bios with real headshots inside interactive overlay modals.
+- **Local Watchlist Database:** Saves and deletes selected titles/news from a persistent local JSON database.
 
 # Architecture & API Limitations
-The Spotify Web API fully redacts stream counts from its public endpoints. To maintain the overall integrity, this dashboard uses a hybrid approach.
+To bypass rate limiting from standard search engines and Wikipedia's media endpoints, CineWave utilizes a hybrid asset retrieval pipeline. 
 
-If you are planning on cloning this repository, you have two options to populate the stream data:
-
-1. Hardcode CLI Input (Recommended)
-- Open ```music_data.py``` and locate the ```current_streams``` dictionary. You can manually search your top 5 tracks on the Spotify app within the last 12 months and input their exact stream count information into the variable. This pipeline will automatically merge these values with the live API data.
-
-2. UI Simulation 
-- Once the program encounters a track not listed within the dictionary, the terminal will pause and prompt you to manually enter the true stream count. If you simply press ```Enter```, the pipeline will automatically generate a simulated stream count using a randomized formula so you can test and render the dashboard UI.
+If you are running this repository locally:
+1. **Pre-Cached Assets:** Cast headshots and theatrical posters are pre-downloaded and stored locally in the [static/images/](file:///G:/Antigravity Projects/agy/app/static/images) directory.
+2. **RSS Filtering & Recovery:** If Variety's RSS feed is unreachable, the system automatically recovers and presents stored fallback articles. If active, a custom keyword regex checks article headings to suppress television, music, and sports posts.
 
 # Setup
 1.) Clone the repository
 ```
-https://github.com/aledzzz/Streamfolio.git 
+https://github.com/aledzzz/CineWave.git
 ```
-2.) Create a virtual environment
+2.) Navigate to the app folder
+```
+cd app
+```
+3.) Create a virtual environment
 ```
 python -m venv venv
 ```
-3.) Install dependencies
+4.) Install dependencies
 ```
 pip install -r requirements.txt
 ```
-4.) Add your Spotify API keys to the .env file (REDIRECT_URI provided below)
-```
-CLIENT_ID = "client id here"
-CLIENT_SECRET = "client secret here"
-REDIRECT_URI = "http://127.0.0.1:8000/callback"
-SCOPE = "user-top-read"
-```
 5.) Run
 ```
-python main.py
+python app.py
 ```
+*(Once running, navigate to `http://127.0.0.1:8080` in your web browser.)*
