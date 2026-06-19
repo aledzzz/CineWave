@@ -22,25 +22,52 @@ If you are running this repository locally:
 1. **Pre-Cached Assets:** Cast headshots and theatrical posters are pre-downloaded and stored locally in the [static/images/](file:///G:/Antigravity Projects/agy/app/static/images) directory.
 2. **RSS Filtering & Recovery:** If Variety's RSS feed is unreachable, the system automatically recovers and presents stored fallback articles. If active, a custom keyword regex checks article headings to suppress television, music, and sports posts.
 
-# Setup
-1.) Clone the repository
+# Setup & Installation (Via Terminal / Command Line)
+
+To run the CineWave application locally, you will need to execute the following commands in your computer's terminal (Command Prompt/PowerShell on Windows, or Terminal on macOS/Linux).
+
+### 1. Open your Terminal / Command Line
+*   **Windows:** Press `Win + R`, type `powershell` (or `cmd`), and press Enter.
+*   **macOS:** Press `Cmd + Space`, type `Terminal`, and press Enter.
+
+### 2. Clone the Repository
+Download the project files onto your local computer and navigate into the project directory:
+```bash
+git clone https://github.com/aledzzz/CineWave.git
+cd CineWave/app
 ```
-https://github.com/aledzzz/CineWave.git
-```
-2.) Navigate to the app folder
-```
-cd app
-```
-3.) Create a virtual environment
-```
+
+### 3. Initialize a Python Virtual Environment
+Creating a virtual environment ensures that the application's packages do not interfere with your system-wide Python installation:
+```bash
 python -m venv venv
 ```
-4.) Install dependencies
-```
+
+### 4. Activate the Virtual Environment
+Before installing packages, you must activate the environment:
+*   **Windows (PowerShell):**
+    ```powershell
+    .\venv\Scripts\Activate.ps1
+    ```
+*   **Windows (Command Prompt / CMD):**
+    ```cmd
+    .\venv\Scripts\activate.bat
+    ```
+*   **macOS / Linux:**
+    ```bash
+    source venv/bin/activate
+    ```
+
+### 5. Install Project Dependencies
+Use `pip` to install Flask and other dependencies listed in the requirements file:
+```bash
 pip install -r requirements.txt
 ```
-5.) Run
-```
+
+### 6. Run the Application
+Launch the Flask local web server:
+```bash
 python app.py
 ```
-*(Once running, navigate to `http://127.0.0.1:8080` in your web browser.)*
+Once the server starts up, open your web browser and go to:
+**[http://127.0.0.1:8080/](http://127.0.0.1:8080/)**
