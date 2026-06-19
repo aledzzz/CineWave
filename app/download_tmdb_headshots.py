@@ -2,8 +2,9 @@ import os
 import re
 import requests
 
-# Target profiles directory
-profiles_dir = r"G:\Antigravity Projects\agy\app\static\images\profiles"
+# Target profiles directory relative to this script
+base_dir = os.path.dirname(os.path.abspath(__file__))
+profiles_dir = os.path.join(base_dir, 'static', 'images', 'profiles')
 os.makedirs(profiles_dir, exist_ok=True)
 
 headers = {

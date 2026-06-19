@@ -69,5 +69,10 @@ Launch the Flask local web server:
 ```bash
 python app.py
 ```
-Once the server starts up, open google chrome (incognito) and go to:
+> [!IMPORTANT]
+> **Keep the Terminal Open:** You must keep this Terminal / Command Prompt window open while you are using the website. Closing this window will stop the Python Flask process and make the website inaccessible.
+>
+> **Stopping the Server:** To stop the local server at any time, press `Ctrl + C` inside the terminal window.
+
+Once the server starts up, open Google Chrome (Incognito Mode Recommended) and go to:
 **[http://127.0.0.1:8080/](http://127.0.0.1:8080/)**

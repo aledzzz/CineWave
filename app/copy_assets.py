@@ -1,8 +1,9 @@
 import os
 import shutil
 
-# Target directory
-target_dir = r"G:\Antigravity Projects\agy\app\static\images"
+# Target directory relative to this script
+base_dir = os.path.dirname(os.path.abspath(__file__))
+target_dir = os.path.join(base_dir, 'static', 'images')
 os.makedirs(target_dir, exist_ok=True)
 
 # Source images in artifact directory

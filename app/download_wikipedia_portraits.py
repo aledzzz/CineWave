@@ -2,8 +2,10 @@ import os
 import time
 import requests
 
-profiles_dir = r"G:\Antigravity Projects\agy\app\static\images\profiles"
-posters_dir = r"G:\Antigravity Projects\agy\app\static\images"
+# Target directories relative to this script
+base_dir = os.path.dirname(os.path.abspath(__file__))
+profiles_dir = os.path.join(base_dir, 'static', 'images', 'profiles')
+posters_dir = os.path.join(base_dir, 'static', 'images')
 os.makedirs(profiles_dir, exist_ok=True)
 os.makedirs(posters_dir, exist_ok=True)
 
