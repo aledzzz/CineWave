@@ -19,7 +19,7 @@ An upcoming blockbuster movie hub and real-time news pipeline dashboard built to
 To bypass rate limiting from standard search engines and Wikipedia's media endpoints, CineWave utilizes a hybrid asset retrieval pipeline. 
 
 If you are running this repository locally:
-1. **Pre-Cached Assets:** Cast headshots and theatrical posters are pre-downloaded and stored locally in the [static/images/](file:///G:/Antigravity Projects/agy/app/static/images) directory.
+1. **Pre-Cached Assets:** Cast headshots and theatrical posters are pre-downloaded and stored locally in the [app/static/images/](app/static/images) directory.
 2. **RSS Filtering & Recovery:** If Variety's RSS feed is unreachable, the system automatically recovers and presents stored fallback articles. If active, a custom keyword regex checks article headings to suppress television, music, and sports posts.
 
 # Setup & Installation (Via Terminal / Command Line)
