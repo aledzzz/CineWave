@@ -2,6 +2,8 @@
 
 An upcoming blockbuster movie hub and real-time news pipeline dashboard built to display highly anticipated blockbusters, stream official teaser trailers, and track film industry headlines. Designed with rich glassmorphism aesthetics, this Flask web application vaults user watchlist selections into a local JSON database and automatically curates film-only press coverage from Variety.
 
+![CineWave Demo](Animation.gif)
+
 # Prerequisites
 - Python 3.11+
 - Virtual Environment manager (`venv`)
