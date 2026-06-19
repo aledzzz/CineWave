@@ -5,14 +5,14 @@ An upcoming blockbuster movie hub and real-time news pipeline dashboard built to
 # Prerequisites
 - Python 3.11+
 - Virtual Environment manager (`venv`)
-- Modern Web Browser (Google Chrome recommended)
+- Google Chrome (Incognito Mode Recommended)
 - pip package manager
 
 # Key Features
-- **Curated Blockbusters:** Showcases highly anticipated titles (Toy Story 5, Supergirl, The Odyssey, Spider-Man, Avengers, Dune 3) sorted chronologically.
+- **Upcoming Blockbusters:** Showcases highly anticipated titles (Toy Story 5, Supergirl, The Odyssey, Spider-Man, Avengers, Dune 3).
 - **Film Industry News:** Curates and filters live Variety RSS news feed items, strictly rendering movie-focused updates.
-- **Interactive Trailers:** Plays high-definition trailers via a dedicated YouTube embed overlay modal.
-- **Circular Cast Profiles:** Renders detailed cast and director bios with real headshots inside interactive overlay modals.
+- **Interactive Trailers:** Plays high-definition trailers via a dedicated YouTube embed overlay model.
+- **Circular Cast Profiles:** Renders detailed cast and director bios inside interactive overlay models.
 - **Local Watchlist Database:** Saves and deletes selected titles/news from a persistent local JSON database.
 
 # Architecture & API Limitations
@@ -59,7 +59,7 @@ Before installing packages, you must activate the environment:
     ```
 
 ### 5. Install Project Dependencies
-Use `pip` to install Flask and other dependencies listed in the requirements file:
+Use `pip` to install all the dependencies listed in the requirements file:
 ```bash
 pip install -r requirements.txt
 ```
@@ -69,5 +69,5 @@ Launch the Flask local web server:
 ```bash
 python app.py
 ```
-Once the server starts up, open your web browser and go to:
+Once the server starts up, open google chrome (incognito) and go to:
 **[http://127.0.0.1:8080/](http://127.0.0.1:8080/)**
